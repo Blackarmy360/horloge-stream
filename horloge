@@ -1,0 +1,39 @@
+<!-- horloge.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Style optionnel pour la mise en page de l'horloge */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+    #horloge {
+      font-size: 24px;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div id="horloge"></div>
+  <script>
+    function mettreAJourHeure() {
+      var maintenant = new Date();
+      var heures = maintenant.getHours();
+      var minutes = maintenant.getMinutes();
+      var secondes = maintenant.getSeconds();
+
+      heures = heures < 10 ? "0" + heures : heures;
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      secondes = secondes < 10 ? "0" + secondes : secondes;
+
+      document.getElementById("horloge").innerHTML = heures + ":" + minutes + ":" + secondes;
+    }
+
+    setInterval(mettreAJourHeure, 1000);
+    mettreAJourHeure(); // Appelle la fonction une fois au chargement de la page
+  </script>
+</body>
+</html>
